@@ -1,11 +1,11 @@
 $(document).ready(function() {
-	$('#deleteEvent').on('click', function(e) {
-		deleteId = ${'#deleteEvent'}.data('delete');
+	$('a[id^=deleteEvent]').on('click', function(e) {
+		var deleteId = $(this).data('delete');
 		$.ajax({
 			url: '/events/delete/' + deleteId,
-			type: 'delete',
+			type: 'DELETE',
 			success: function(result) {
-				
+				console.log(result);
 			}
 		});
 		window.location = '/events';
